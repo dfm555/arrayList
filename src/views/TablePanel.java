@@ -12,7 +12,7 @@ public class TablePanel extends JPanel {
     private JTable dataGrid;
 
     TablePanel() {
-
+        initComponents();
     }
 
     public void initComponents() {
@@ -25,5 +25,6 @@ public class TablePanel extends JPanel {
         };
         tableDefaultModel = new DefaultTableModel( col, 0 );
         dataGrid = new JTable( tableDefaultModel );
+        add(dataGrid);
     }
 }
