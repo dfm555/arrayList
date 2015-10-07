@@ -7,6 +7,7 @@ import java.util.List;
  * Created by monicaramirez on 5/10/15.
  */
 public class Students {
+    private int id;
     private String name;
     private String carer;
     private int numberCreditsApprove;
@@ -15,6 +16,14 @@ public class Students {
 
     Students() {
 
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

@@ -2,29 +2,36 @@ package views;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 
 /**
  * Created by monicaramirez on 5/10/15.
  */
 public class TablePanel extends JPanel {
 
-    private DefaultTableModel tableDefaultModel;
+    //private DefaultTableModel tableModel;
     private JTable dataGrid;
 
-    TablePanel() {
+    public TablePanel() {
         initComponents();
     }
 
     public void initComponents() {
-        String col[] = {
+        //setBorder(BorderFactory.createTitledBorder("Data grid"));
+        setLayout(new GridLayout(1,1));
+        String[] col = {
                 "ID student",
                 "Name",
                 "Carer",
                 "Approve",
                 "Average"
         };
-        tableDefaultModel = new DefaultTableModel( col, 0 );
-        dataGrid = new JTable( tableDefaultModel );
-        add(dataGrid);
+        Object object[][] = {
+                { 111, "Duber", "Sistemas", 6, 4.5 }
+        };
+
+        dataGrid = new JTable( object, col );
+        dataGrid.setFillsViewportHeight(true);
+        add(new JScrollPane(dataGrid));
     }
 }
