@@ -12,7 +12,7 @@ public class TablePanel extends JPanel {
     private JTable dataGrid;
 
     TablePanel() {
-
+        initComponents();
     }
 
     public void initComponents() {
