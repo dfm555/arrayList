@@ -1,4 +1,4 @@
-import views.Container;
+import views.Window;
 
 public class Main {
 
