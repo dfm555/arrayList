@@ -14,6 +14,14 @@ public class Students {
 
     }
 
+    public Students(int id, String name, String career, int numberCreditsApprove, double average) {
+        this.id = id;
+        this.name = name;
+        this.career = career;
+        this.numberCreditsApprove = numberCreditsApprove;
+        this.average = average;
+    }
+
     public int getId() {
         return id;
     }

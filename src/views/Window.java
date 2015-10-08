@@ -17,7 +17,6 @@ public class Window extends JFrame {
     private ElementsPanel elementsPanel = new ElementsPanel();
     private TablePanel tablePanel = new TablePanel();
     private ButtonsPanel buttonsPanel = new ButtonsPanel( this );
-    Students students = new Students();
     StudentsController cStudents = new StudentsController();
 
     public Window(){
@@ -46,12 +45,7 @@ public class Window extends JFrame {
                 int creditsApproved = Integer.parseInt( elementsPanel.getTxtNumberCreditApprove().getText() );
                 double average = Double.parseDouble( elementsPanel.getTxtAverage().getText() );
                 int id = cStudents.listStudents().size() + 1;
-                students.setId(id);
-                students.setName(name);
-                students.setCareer(career);
-                students.setNumberCreditsApprove(creditsApproved);
-                students.setAverage(average);
-                boolean result = cStudents.saveStudent(students);
+                boolean result = cStudents.saveStudent(new Students(id,name, career, creditsApproved, average));
                 if(result){
                     refreshGrid( );
                 }else {
