@@ -14,6 +14,10 @@ public class Students {
     private double average;
     List <Students> listStudents = new ArrayList<Students>();
 
+    public Students(Students students) {
+        saveStudent(students);
+    }
+
     public Students() {
 
     }
