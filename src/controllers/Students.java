@@ -9,12 +9,12 @@ import java.util.List;
 public class Students {
     private int id;
     private String name;
-    private String carer;
+    private String career;
     private int numberCreditsApprove;
     private double average;
     List <Students> listStudents = new ArrayList<Students>();
 
-    Students() {
+    public Students() {
 
     }
 
@@ -34,12 +34,12 @@ public class Students {
         this.name = name;
     }
 
-    public String getCarer() {
-        return carer;
+    public String getCareer() {
+        return career;
     }
 
-    public void setCarer(String carer) {
-        this.carer = carer;
+    public void setCareer(String career) {
+        this.career = career;
     }
 
     public int getNumberCreditsApprove() {
