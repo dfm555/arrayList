@@ -14,7 +14,7 @@ public class Students {
     private double average;
     List <Students> listStudents = new ArrayList<Students>();
 
-    Students() {
+    public Students() {
 
     }
 
