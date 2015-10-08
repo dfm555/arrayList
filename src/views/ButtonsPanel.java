@@ -11,6 +11,9 @@ import java.awt.event.ActionListener;
 public class ButtonsPanel extends JPanel implements ActionListener {
 
     private JButton btnSave;
+    private JButton btnEdit;
+    private JButton btnDelete;
+    private JButton btnFilter;
     private Window window;
 
     public ButtonsPanel( Window window) {
@@ -21,14 +24,26 @@ public class ButtonsPanel extends JPanel implements ActionListener {
     public void initComponents() {
         setBorder( BorderFactory.createTitledBorder( "Actions" ) );
         setLayout( new GridLayout( 1,4 ) );
-        add( btnSave = new JButton( "Save" ) );
-        add( btnSave = new JButton( "Edit" ) );
-        add( btnSave = new JButton( "Delete" ) );
-        add( btnSave = new JButton( "Filter" ) );
+        btnSave = new JButton( "Save" );
+        btnSave.setActionCommand( "save" );
+        btnSave.addActionListener( this );
+        btnEdit = new JButton( "Edit" );
+        btnEdit.setActionCommand( "edit" );
+        btnEdit.addActionListener( this );
+        btnDelete = new JButton( "Delete" );
+        btnDelete.setActionCommand( "delete" );
+        btnDelete.addActionListener( this );
+        btnFilter = new JButton( "Filter" );
+        btnFilter.setActionCommand("filter" );
+        btnFilter.addActionListener(this);
+        add( btnSave );
+        add( btnEdit );
+        add( btnDelete );
+        add( btnFilter );
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        window.executeAction( e.getActionCommand() );
     }
 }
