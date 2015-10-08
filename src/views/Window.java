@@ -1,5 +1,7 @@
 package views;
 
+import controllers.Students;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -20,7 +22,7 @@ public class Window extends JFrame {
         setTitle("Students Information");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
-        setSize(500, 400);
+        setSize(600, 400);
         setLocationRelativeTo(null);
         Box box = Box.createVerticalBox();
         box.add(elementsPanel, BorderLayout.NORTH);
@@ -29,7 +31,12 @@ public class Window extends JFrame {
         add(box);
     }
 
-    public void executeAction(){
+    public void executeAction( String action ){
+        switch (action){
+            case "save":
+                Students students = new Students();
+                break;
+        }
 
     }
 
