@@ -5,6 +5,7 @@ import controllers.Students;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.util.*;
 
 /**
  * Created by monicaramirez on 5/10/15.
@@ -21,11 +22,11 @@ public class Window extends JFrame {
     }
 
     public void initComponents() {
-        students.setId(1);
+        /*students.setId(1);
         students.setName("Name test");
         students.setCareer("Career test");
         students.setNumberCreditsApprove(40);
-        students.setAverage(4.5);
+        students.setAverage(4.5);*/
         tablePanel = new TablePanel(students);
         setTitle("Students Information");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -76,24 +77,20 @@ public class Window extends JFrame {
 
         DefaultTableModel tableModel = new DefaultTableModel(col, 0);
 
-        for (int i = 0; i < students.showStudents().size(); i++){
-            int id = students.showStudents().get(i).getId();
-            String name = students.showStudents().get(i).getName();
-            String career = students.showStudents().get(i).getCareer();
-            int creditsApproved = students.showStudents().get(i).getNumberCreditsApprove();
-            double average = students.showStudents().get(i).getAverage();
+        java.util.List<Students> list = new ArrayList<Students>();
+        list = students.showStudents();
+
+        for (int i = 0; i < list.size(); i++){
+            int id = list.get(i).getId();
+            String name = list.get(i).getName();
+            String career = list.get(i).getCareer();
+            int creditsApproved = list.get(i).getNumberCreditsApprove();
+            double average = list.get(i).getAverage();
             Object[] data = { id, name, career, creditsApproved, average };
             tableModel.addRow(data);
         }
 
-        for (int i = 0; i < students.showStudents().size(); i++){
-            System.out.print(students.showStudents().get(i).getId());
-            System.out.print(students.showStudents().get(i).getName());
-            System.out.print(students.showStudents().get(i).getCareer());
-            System.out.print("\n");
-        }
-
-        //tablePanel.getDataGrid().setModel(tableModel);
+        tablePanel.getDataGrid().setModel(tableModel);
     }
 
 }
