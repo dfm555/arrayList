@@ -1,7 +1,6 @@
 package views;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
 /**
@@ -20,7 +19,7 @@ public class TablePanel extends JPanel {
         //setBorder(BorderFactory.createTitledBorder("Data grid"));
         setLayout(new GridLayout(1,1));
         String[] col = {
-                "ID student",
+                "ID Student",
                 "Name",
                 "Carer",
                 "Approve",
