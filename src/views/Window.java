@@ -1,33 +1,31 @@
 package views;
 
-import controllers.Students;
+import Controllers.StudentsController;
+import Entities.Students;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.util.*;
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Created by monicaramirez on 5/10/15.
  */
 public class Window extends JFrame {
 
-    private Students students = new Students();
     private ElementsPanel elementsPanel = new ElementsPanel();
     private TablePanel tablePanel = new TablePanel();
     private ButtonsPanel buttonsPanel = new ButtonsPanel( this );
+    Students students = new Students();
+    StudentsController cStudents = new StudentsController();
 
     public Window(){
         initComponents();
     }
 
     public void initComponents() {
-        /*students.setId(1);
-        students.setName("Name test");
-        students.setCareer("Career test");
-        students.setNumberCreditsApprove(40);
-        students.setAverage(4.5);*/
-        tablePanel = new TablePanel(students);
+        tablePanel = new TablePanel();
         setTitle("Students Information");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
@@ -47,15 +45,15 @@ public class Window extends JFrame {
                 String career = elementsPanel.getTxtCareer().getText();
                 int creditsApproved = Integer.parseInt( elementsPanel.getTxtNumberCreditApprove().getText() );
                 double average = Double.parseDouble( elementsPanel.getTxtAverage().getText() );
-                int id = students.showStudents().size() + 1;
+                int id = cStudents.listStudents().size() + 1;
                 students.setId(id);
                 students.setName(name);
                 students.setCareer(career);
                 students.setNumberCreditsApprove(creditsApproved);
                 students.setAverage(average);
-                boolean result = students.saveStudent(students);
+                boolean result = cStudents.saveStudent(students);
                 if(result){
-                    refreshGrid();
+                    refreshGrid( );
                 }else {
                     JOptionPane.showMessageDialog(null, "Error");
                 }
@@ -77,15 +75,12 @@ public class Window extends JFrame {
 
         DefaultTableModel tableModel = new DefaultTableModel(col, 0);
 
-        java.util.List<Students> list = new ArrayList<Students>();
-        list = students.showStudents();
-
-        for (int i = 0; i < list.size(); i++){
-            int id = list.get(i).getId();
-            String name = list.get(i).getName();
-            String career = list.get(i).getCareer();
-            int creditsApproved = list.get(i).getNumberCreditsApprove();
-            double average = list.get(i).getAverage();
+        for (int i = 0; i < cStudents.listStudents().size(); i++){
+            int id = cStudents.listStudents().get(i).getId();
+            String name = cStudents.listStudents().get(i).getName();
+            String career = cStudents.listStudents().get(i).getCareer();
+            int creditsApproved = cStudents.listStudents().get(i).getNumberCreditsApprove();
+            double average = cStudents.listStudents().get(i).getAverage();
             Object[] data = { id, name, career, creditsApproved, average };
             tableModel.addRow(data);
         }

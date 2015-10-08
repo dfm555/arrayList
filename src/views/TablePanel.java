@@ -1,6 +1,7 @@
 package views;
 
-import controllers.Students;
+import Controllers.StudentsController;
+import Entities.Students;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -14,14 +15,10 @@ public class TablePanel extends JPanel {
 
     //private DefaultTableModel tableModel;
     private JTable dataGrid;
-    private Students students;
+    private Students students = new Students();
+    private StudentsController cStudents = new StudentsController();
 
-    public TablePanel(){
-
-    }
-
-    public TablePanel( Students students) {
-        this.students = students;
+    public TablePanel( ) {
         initComponents();
     }
 
@@ -49,7 +46,7 @@ public class TablePanel extends JPanel {
         DefaultTableModel tableModel = new DefaultTableModel(col, 0);
 
         List<Students> list = new ArrayList<Students>();
-        list = students.showStudents();
+        list = cStudents.listStudents();
 
         for (int i = 0; i < list.size(); i++){
             int id = list.get(i).getId();
