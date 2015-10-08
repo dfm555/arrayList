@@ -16,21 +16,53 @@ public class TablePanel extends JPanel {
     }
 
     public void initComponents() {
-        //setBorder(BorderFactory.createTitledBorder("Data grid"));
-        setLayout(new GridLayout(1,1));
+        setBorder(BorderFactory.createTitledBorder("Data grid"));
+        setLayout(new BorderLayout() );
         String[] col = {
                 "ID Student",
                 "Name",
-                "Carer",
+                "Career",
                 "Approve",
                 "Average"
         };
         Object object[][] = {
-                { 111, "Duber", "Sistemas", 6, 4.5 }
+                { 111, "Duber", "Sistemas", 6, 4.5 },
+                { 111, "Duber", "Sistemas", 6, 4.5 },
+                { 111, "Duber", "Sistemas", 6, 4.5 },
+                { 111, "Duber", "Sistemas", 6, 4.5 },
+                { 111, "Duber", "Sistemas", 6, 4.5 },
+                { 111, "Duber", "Sistemas", 6, 4.5 },
+                { 111, "Duber", "Sistemas", 6, 4.5 },
+                { 111, "Duber", "Sistemas", 6, 4.5 },
+                { 111, "Duber", "Sistemas", 6, 4.5 },
+                { 111, "Duber", "Sistemas", 6, 4.5 },
+                { 111, "Duber", "Sistemas", 6, 4.5 },
+                { 111, "Duber", "Sistemas", 6, 4.5 },
+                { 111, "Duber", "Sistemas", 6, 4.5 },
+                { 111, "Duber", "Sistemas", 6, 4.5 },
+                { 111, "Duber", "Sistemas", 6, 4.5 },
+                { 111, "Duber", "Sistemas", 6, 4.5 },
+                { 111, "Duber", "Sistemas", 6, 4.5 },
+                { 111, "Duber", "Sistemas", 6, 4.5 },
+                { 111, "Duber", "Sistemas", 6, 4.5 },
+                { 111, "Duber", "Sistemas", 6, 4.5 },
+                { 111, "Duber", "Sistemas", 6, 4.5 },
+                { 111, "Duber", "Sistemas", 6, 4.5 },
+                { 111, "Duber", "Sistemas", 6, 4.5 },
+                { 111, "Duber", "Sistemas", 6, 4.5 },
+                { 111, "Duber", "Sistemas", 6, 4.5 },
+                { 111, "Duber", "Sistemas", 6, 4.5 },
+                { 111, "Duber", "Sistemas", 6, 4.5 },
+                { 111, "Duber", "Sistemas", 6, 4.5 },
+
+
+
         };
 
         dataGrid = new JTable( object, col );
-        dataGrid.setFillsViewportHeight(true);
-        add(new JScrollPane(dataGrid));
+
+        JScrollPane tableContainer = new JScrollPane(dataGrid);
+        tableContainer.setPreferredSize(new Dimension(500, 200));
+        add( tableContainer, BorderLayout.CENTER );
     }
 }

@@ -10,7 +10,7 @@ public class Window extends JFrame {
 
     private ElementsPanel elementsPanel = new ElementsPanel();
     private TablePanel tablePanel = new TablePanel();
-    private ButtonsPanel buttonsPanel = new ButtonsPanel();
+    private ButtonsPanel buttonsPanel = new ButtonsPanel( this );
 
     public Window(){
         initComponents();
@@ -20,11 +20,17 @@ public class Window extends JFrame {
         setTitle("Students Information");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
-        setSize(500, 500);
+        setSize(500, 400);
         setLocationRelativeTo(null);
-        //add(tablePanel, BorderLayout.NORTH);
-        add(tablePanel, BorderLayout.CENTER);
-        //add(tablePanel, BorderLayout.SOUTH);
+        Box box = Box.createVerticalBox();
+        box.add(elementsPanel, BorderLayout.NORTH);
+        box.add(buttonsPanel, BorderLayout.CENTER );
+        box.add( tablePanel, BorderLayout.SOUTH );
+        add(box);
+    }
+
+    public void executeAction(){
+
     }
 
 }
