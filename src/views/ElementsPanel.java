@@ -36,4 +36,39 @@ public class ElementsPanel extends JPanel {
 
     }
 
+    public JTextField getTxtName() {
+        return txtName;
+    }
+
+    public ElementsPanel setTxtName(JTextField txtName) {
+        this.txtName = txtName;
+        return this;
+    }
+
+    public JTextField getTxtCareer() {
+        return txtCareer;
+    }
+
+    public ElementsPanel setTxtCareer(JTextField txtCareer) {
+        this.txtCareer = txtCareer;
+        return this;
+    }
+
+    public JTextField getTxtNumberCreditApprove() {
+        return txtNumberCreditApprove;
+    }
+
+    public ElementsPanel setTxtNumberCreditApprove(JTextField txtNumberCreditApprove) {
+        this.txtNumberCreditApprove = txtNumberCreditApprove;
+        return this;
+    }
+
+    public JTextField getTxtAverage() {
+        return txtAverage;
+    }
+
+    public ElementsPanel setTxtAverage(JTextField txtAverage) {
+        this.txtAverage = txtAverage;
+        return this;
+    }
 }

@@ -1,8 +1,12 @@
 package views;
 
-import javax.swing.*;
-import java.awt.*;
+import controllers.Students;
 
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 /**
  * Created by monicaramirez on 5/10/15.
  */
@@ -10,58 +14,56 @@ public class TablePanel extends JPanel {
 
     //private DefaultTableModel tableModel;
     private JTable dataGrid;
+    private Students students;
 
-    public TablePanel() {
+    public TablePanel(){
+
+    }
+
+    public TablePanel( Students students) {
+        this.students = students;
         initComponents();
+    }
+
+    public JTable getDataGrid() {
+        return dataGrid;
+    }
+
+    public TablePanel setDataGrid(JTable dataGrid) {
+        this.dataGrid = dataGrid;
+        return this;
     }
 
     public void initComponents() {
         setBorder(BorderFactory.createTitledBorder("Data grid"));
         setLayout(new BorderLayout() );
+        setDataGrid(new JTable());
         String[] col = {
                 "ID Student",
                 "Name",
                 "Career",
-                "Approve",
+                "Approved",
                 "Average"
         };
-        Object object[][] = {
-                { 111, "Duber", "Sistemas", 6, 4.5 },
-                { 111, "Duber", "Sistemas", 6, 4.5 },
-                { 111, "Duber", "Sistemas", 6, 4.5 },
-                { 111, "Duber", "Sistemas", 6, 4.5 },
-                { 111, "Duber", "Sistemas", 6, 4.5 },
-                { 111, "Duber", "Sistemas", 6, 4.5 },
-                { 111, "Duber", "Sistemas", 6, 4.5 },
-                { 111, "Duber", "Sistemas", 6, 4.5 },
-                { 111, "Duber", "Sistemas", 6, 4.5 },
-                { 111, "Duber", "Sistemas", 6, 4.5 },
-                { 111, "Duber", "Sistemas", 6, 4.5 },
-                { 111, "Duber", "Sistemas", 6, 4.5 },
-                { 111, "Duber", "Sistemas", 6, 4.5 },
-                { 111, "Duber", "Sistemas", 6, 4.5 },
-                { 111, "Duber", "Sistemas", 6, 4.5 },
-                { 111, "Duber", "Sistemas", 6, 4.5 },
-                { 111, "Duber", "Sistemas", 6, 4.5 },
-                { 111, "Duber", "Sistemas", 6, 4.5 },
-                { 111, "Duber", "Sistemas", 6, 4.5 },
-                { 111, "Duber", "Sistemas", 6, 4.5 },
-                { 111, "Duber", "Sistemas", 6, 4.5 },
-                { 111, "Duber", "Sistemas", 6, 4.5 },
-                { 111, "Duber", "Sistemas", 6, 4.5 },
-                { 111, "Duber", "Sistemas", 6, 4.5 },
-                { 111, "Duber", "Sistemas", 6, 4.5 },
-                { 111, "Duber", "Sistemas", 6, 4.5 },
-                { 111, "Duber", "Sistemas", 6, 4.5 },
-                { 111, "Duber", "Sistemas", 6, 4.5 },
 
+        DefaultTableModel tableModel = new DefaultTableModel(col, 0);
 
+        List<Students> list = new ArrayList<Students>();
+        list = students.showStudents();
 
-        };
+        for (int i = 0; i < list.size(); i++){
+            int id = list.get(i).getId();
+            String name = list.get(i).getName();
+            String career = list.get(i).getCareer();
+            int creditsApproved = list.get(i).getNumberCreditsApprove();
+            double average = list.get(i).getAverage();
+            Object[] data = { id, name, career, creditsApproved, average };
+            tableModel.addRow(data);
+        }
 
-        dataGrid = new JTable( object, col );
+        getDataGrid().setModel(tableModel);
 
-        JScrollPane tableContainer = new JScrollPane(dataGrid);
+        JScrollPane tableContainer = new JScrollPane(getDataGrid());
         tableContainer.setPreferredSize(new Dimension(500, 200));
         add( tableContainer, BorderLayout.CENTER );
     }
