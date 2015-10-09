@@ -1,9 +1,5 @@
 import Controllers.StudentsController;
-import Entities.Students;
-import views.Window;
-
-import java.util.ArrayList;
-import java.util.List;
+import Views.Window;
 
 public class Main {
     static StudentsController controller = new StudentsController();

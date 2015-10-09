@@ -1,4 +1,4 @@
-package views;
+package Views;
 
 import Controllers.StudentsController;
 import Entities.Students;
@@ -44,22 +44,7 @@ public class TablePanel extends JPanel {
         };
 
         DefaultTableModel tableModel = new DefaultTableModel(col, 0);
-
-        List<Students> list = new ArrayList<Students>();
-        list = cStudents.listStudents();
-
-        for (int i = 0; i < list.size(); i++){
-            int id = list.get(i).getId();
-            String name = list.get(i).getName();
-            String career = list.get(i).getCareer();
-            int creditsApproved = list.get(i).getNumberCreditsApprove();
-            double average = list.get(i).getAverage();
-            Object[] data = { id, name, career, creditsApproved, average };
-            tableModel.addRow(data);
-        }
-
         getDataGrid().setModel(tableModel);
-
         JScrollPane tableContainer = new JScrollPane(getDataGrid());
         tableContainer.setPreferredSize(new Dimension(500, 200));
         add( tableContainer, BorderLayout.CENTER );
