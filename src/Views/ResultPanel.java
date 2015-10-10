@@ -7,7 +7,10 @@ import java.awt.*;
  * Created by root on 8/10/15.
  */
 public class ResultPanel extends JPanel{
-    JLabel showResults;
+    
+	private static final long serialVersionUID = 900863736897893349L;
+	
+	JLabel showResults;
 
     public ResultPanel() {
         initComponents();

@@ -1,24 +1,23 @@
 package Views;
 
-import Controllers.StudentsController;
-import Entities.Students;
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
+
 /**
  * Created by monicaramirez on 5/10/15.
  */
 public class TablePanel extends JPanel {
 
-    //private DefaultTableModel tableModel;
+	private static final long serialVersionUID = -5852342325735259853L;
+	
+	//private DefaultTableModel tableModel;
     private JTable dataGrid;
-    private Students students = new Students();
-    private StudentsController cStudents = new StudentsController();
+//    private Students students = new Students();
+//    private StudentsController cStudents = new StudentsController();
 
-    public TablePanel( ) {
+    public TablePanel() {
         initComponents();
     }
 

@@ -12,7 +12,9 @@ import java.awt.*;
  */
 public class Window extends JFrame {
 
-    private ElementsPanel elementsPanel = new ElementsPanel();
+    private static final long serialVersionUID = 5395397533732413502L;
+    
+	private ElementsPanel elementsPanel = new ElementsPanel();
     private TablePanel tablePanel = new TablePanel();
     private ButtonsPanel buttonsPanel = new ButtonsPanel( this );
     private ResultPanel resultPanel = new ResultPanel();
@@ -35,6 +37,11 @@ public class Window extends JFrame {
         box.add( tablePanel, BorderLayout.CENTER );
         box.add( resultPanel, BorderLayout.SOUTH );
         add(box);
+        
+//        cStudents.saveStudent(new Students(1, "Carlos", "Sistemas", 20, 4.5));
+//        cStudents.saveStudent(new Students(2, "Duber", "Sistemas2", 21, 4.5));
+//        cStudents.saveStudent(new Students(3, "Isa", "Mercadeo", 22, 4.5));
+//        refreshGrid();
     }
 
     public void executeAction( String action ){
@@ -58,6 +65,10 @@ public class Window extends JFrame {
                 }else {
                     JOptionPane.showMessageDialog(null, "Error");
                 }
+                elementsPanel.getTxtName().setText("");
+                elementsPanel.getTxtCareer().setText("");
+                elementsPanel.getTxtNumberCreditApprove().setText("");
+                elementsPanel.getTxtAverage().setText("");
                 break;
             case "delete":
                 int row = tablePanel.getDataGrid().getSelectedRow();

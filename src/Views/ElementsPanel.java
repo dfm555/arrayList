@@ -6,13 +6,16 @@ import java.awt.*;
 /**
  * Created by monicaramirez on 5/10/15.
  */
+@SuppressWarnings("unused")
 public class ElementsPanel extends JPanel {
 
-    private JTextField txtName;
+    private static final long serialVersionUID = 5554341506809539758L;
+	
+	private JTextField txtName;
     private JTextField txtCareer;
     private JTextField txtNumberCreditApprove;
     private JTextField txtAverage;
-    private JLabel lblName;
+	private JLabel lblName;
     private JLabel lblCareer;
     private JLabel lblNumberCreditApprove;
     private JLabel lblAverage;
