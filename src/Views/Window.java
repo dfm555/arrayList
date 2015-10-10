@@ -38,10 +38,10 @@ public class Window extends JFrame {
         box.add( resultPanel, BorderLayout.SOUTH );
         add(box);
         
-//        cStudents.saveStudent(new Students(1, "Carlos", "Sistemas", 20, 4.5));
-//        cStudents.saveStudent(new Students(2, "Duber", "Sistemas2", 21, 4.5));
-//        cStudents.saveStudent(new Students(3, "Isa", "Mercadeo", 22, 4.5));
-//        refreshGrid();
+        cStudents.saveStudent(new Students(1, "Carlos", "Sistemas", 20, 4.5));
+        cStudents.saveStudent(new Students(2, "Duber", "Sistemas2", 21, 4.5));
+        cStudents.saveStudent(new Students(3, "Isa", "Mercadeo", 22, 4.5));
+        refreshGrid();
     }
 
     public void executeAction( String action ){
